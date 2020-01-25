@@ -55,40 +55,53 @@ class _HomeState extends State<Home> {
   }
   
   Widget Home() {
-    return ListView.builder(
-      itemCount: homeData == null ? 0 : homeData.length,
-      itemBuilder: (context, index) {
-        return GestureDetector(
+    if (homeData == null) {
+      return Scaffold(
+        body: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Container(width: double.infinity, child: Image.network(homeData[index]['ThumbmnilURL'], fit: BoxFit.cover,)),
-              ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: NetworkImage(homeData[index]['ProfileiconURL']),
-                ),
-                title: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(homeData[index]['Title'], style: TextStyle(fontSize: 18),),
-                    Text('${homeData[index]['Name']} . ${homeData[index]['Views']} . ${homeData[index]['Day']}', style: TextStyle(fontSize: 13, color: Colors.grey)),
-                  ],
-                ),
-                trailing: IconButton(
-                  icon: Icon(Icons.more_vert),
-                  onPressed: () {},
-                ),
-              ),
-              Padding(padding: EdgeInsets.all(5),)
+              CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.red),)
             ],
           ),
-          onTap: () {
-            Navigator.push(context, 
-              MaterialPageRoute(builder: (context) => VideoPlayerScreen(homeData, index))
-            );
-          },
-        );
-      },
-    );
+        ),
+      );
+    } else {
+      return ListView.builder(
+        itemCount: homeData == null ? 0 : homeData.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            child: Column(
+              children: <Widget>[
+                Container(width: double.infinity, child: Image.network(homeData[index]['ThumbmnilURL'], fit: BoxFit.cover,)),
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(homeData[index]['ProfileiconURL']),
+                  ),
+                  title: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(homeData[index]['Title'], style: TextStyle(fontSize: 18),),
+                      Text('${homeData[index]['Name']} . ${homeData[index]['Views']} . ${homeData[index]['Day']}', style: TextStyle(fontSize: 13, color: Colors.grey)),
+                    ],
+                  ),
+                  trailing: IconButton(
+                    icon: Icon(Icons.more_vert),
+                    onPressed: () {},
+                  ),
+                ),
+                Padding(padding: EdgeInsets.all(5),)
+              ],
+            ),
+            onTap: () {
+              Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => VideoPlayerScreen(homeData, index))
+              );
+            },
+          );
+        },
+      );
+    }
   }
 
   Widget bodySelector() {

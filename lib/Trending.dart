@@ -3,6 +3,19 @@ import 'package:flutter/material.dart';
 import 'VideoPlay.dart';
 
 Widget Trending(data) {
+  if (data == null) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.red),)
+          ],
+        ),
+      ),
+    );
+  }
+  else {
     return Column(
       children: <Widget>[
         SingleChildScrollView(
@@ -125,3 +138,4 @@ Widget Trending(data) {
       ],
     );
   }
+}

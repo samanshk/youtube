@@ -3,6 +3,19 @@ import 'package:flutter/material.dart';
 import 'VideoPlay.dart';
 
 Widget Subscriptions(data) {
+  if (data == null) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.red),)
+          ],
+        ),
+      ),
+    );
+  }
+  else {
     return Column(
       children: <Widget>[
         Container(
@@ -70,3 +83,4 @@ Widget Subscriptions(data) {
       ],
     );
   }
+}
