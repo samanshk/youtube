@@ -44,7 +44,6 @@ Widget Trending(data) {
                     onPressed: () {},
                     icon: CircleAvatar(
                       radius: 100,
-                      // backgroundColor: Colors.grey[800],
                       child: Icon(Icons.games, size: 50,),
                     ),
                   ),
@@ -58,7 +57,6 @@ Widget Trending(data) {
                     onPressed: () {},
                     icon: CircleAvatar(
                       radius: 100,
-                      // backgroundColor: Colors.grey[800],
                       child: Icon(Icons.new_releases, size: 50,),
                     ),
                   ),
@@ -72,7 +70,6 @@ Widget Trending(data) {
                     onPressed: () {},
                     icon: CircleAvatar(
                       radius: 100,
-                      // backgroundColor: Colors.grey[800],
                       child: Icon(Icons.local_movies, size: 50,),
                     ),
                   ),
@@ -87,7 +84,6 @@ Widget Trending(data) {
                     onPressed: () {},
                     icon: CircleAvatar(
                       radius: 100,
-                      // backgroundColor: Colors.grey[800],
                       child: Icon(Icons.music_note, size: 50,),
                     ),
                   ),
